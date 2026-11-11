@@ -1,0 +1,653 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Storyboard Portfolio</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #f5f5f5;
+  color: #111;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+  background: #111;
+  color: white;
+  padding: 65px 8% 55px;
+}
+
+.topline {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #555;
+  padding-bottom: 20px;
+  font-size: 11px;
+  letter-spacing: 3px;
+}
+
+.hero {
+  padding-top: 65px;
+}
+
+.hero h1 {
+  font-size: clamp(38px, 8vw, 90px);
+  letter-spacing: -4px;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.hero p {
+  margin-top: 25px;
+  color: #aaa;
+  font-size: 12px;
+  letter-spacing: 3px;
+  line-height: 2;
+}
+
+main {
+  max-width: 1250px;
+  margin: auto;
+  padding: 65px 7%;
+}
+
+.section-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 35px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 15px;
+}
+
+.section-title h2 {
+  font-size: 13px;
+  letter-spacing: 3px;
+}
+
+.section-title span {
+  font-size: 11px;
+  color: #777;
+}
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 45px 25px;
+}
+
+.project {
+  min-width: 0;
+}
+
+.project-number {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: #777;
+  margin-bottom: 12px;
+}
+
+.preview {
+  background: #181818;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.preview video,
+.preview iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  object-fit: contain;
+  background: #111;
+}
+
+.empty {
+  text-align: center;
+  color: white;
+  padding: 20px;
+}
+
+.empty .symbol {
+  font-size: 35px;
+  margin-bottom: 12px;
+}
+
+.empty p {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: #aaa;
+}
+
+.project-info {
+  padding-top: 18px;
+}
+
+.project-title {
+  font-size: 19px;
+  font-weight: bold;
+  color: #111;
+  margin-bottom: 10px;
+}
+
+.project-description {
+  font-size: 12px;
+  color: #777;
+  line-height: 1.8;
+}
+
+
+.project-info input {
+  font-size: 19px;
+  font-weight: bold;
+}
+
+.project-info textarea {
+  resize: vertical;
+  min-height: 48px;
+  font-size: 12px;
+}
+
+
+
+footer {
+  background: #111;
+  color: white;
+  text-align: center;
+  padding: 45px 20px;
+  font-size: 10px;
+  letter-spacing: 3px;
+  line-height: 2;
+}
+
+/* CONTACT SECTION */
+
+.contact-section {
+  margin-top: 100px;
+  padding-top: 40px;
+  border-top: 1px solid #ccc;
+}
+
+.contact-description {
+  font-size: 13px;
+  color: #777;
+  line-height: 2;
+  margin-bottom: 35px;
+  max-width: 500px;
+}
+
+.contact-form {
+  max-width: 650px;
+}
+
+.contact-form label {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 2px;
+  margin-top: 25px;
+  color: #555;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 14px 0;
+  margin-top: 8px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  font-family: inherit;
+  font-size: 13px;
+  outline: none;
+  color: #111;
+}
+
+.contact-form textarea {
+  resize: vertical;
+}
+
+.contact-form button {
+  margin-top: 30px;
+  padding: 16px 25px;
+  background: #111;
+  color: white;
+  border: none;
+  font-size: 10px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.contact-form button:hover {
+  background: #555;
+}
+
+@media(max-width: 650px) {
+  .projects {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  header {
+    padding: 40px 6%;
+  }
+
+  main {
+    padding: 45px 6%;
+  }
+
+  .hero h1 {
+    letter-spacing: -2px;
+  }
+}
+/* WEBSITE NAVIGATION */
+
+.site-nav {
+  background: #111;
+  color: white;
+  padding: 20px 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-logo {
+  color: white;
+  text-decoration: none;
+  font-size: 11px;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links a {
+  color: #aaa;
+  text-decoration: none;
+  font-size: 10px;
+  letter-spacing: 2px;
+  transition: .2s;
+}
+
+.nav-links a:hover {
+  color: white;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+#about,
+#contact,
+#home {
+  scroll-margin-top: 75px;
+}
+
+@media(max-width: 650px) {
+  .site-nav {
+    padding: 20px 6%;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+
+  .nav-links {
+    gap: 15px;
+  }
+}
+
+/* ABOUT ME SECTION */
+
+.about-section {
+  margin-top: 100px;
+  padding-top: 20px;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 45px;
+  align-items: start;
+}
+
+.about-image img {
+  width: 100%;
+  display: block;
+  height: auto;
+}
+
+.about-text h2 {
+  font-size: 18px;
+  letter-spacing: 2px;
+  margin-bottom: 25px;
+}
+
+.about-text p {
+  font-size: 13px;
+  color: #666;
+  line-height: 2.2;
+  margin-bottom: 20px;
+}
+
+@media(max-width: 650px) {
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
+</style>
+</head>
+
+<body>
+  <nav class="site-nav">
+
+    <a href="#home" class="nav-logo">
+      CAMERON NESTOROVSKI
+    </a>
+  
+    <div class="nav-links">
+      <a href="#home">HOME</a>
+      <a href="#about">ABOUT</a>
+      <a href="#contact">CONTACT</a>
+    </div>
+  
+  </nav>
+<header id="home">
+  <div class="topline">
+    <span>STORYBOARD PORTFOLIO</span>
+    <span>Cameron Nestorovski</span>
+  </div>
+
+  <div class="hero">
+    <h1>Storyboard<br>Portfolio.</h1>
+    <p>
+      VISUAL STORYTELLING<br>
+      FILM · CINEMA · STORYBOARDING
+    </p>
+  </div>
+</header>
+
+<main>
+  <div class="section-title">
+    <h2>STORYBOARD GALLERY</h2>
+    <span>PROJECT COLLECTION</span>
+  </div>
+  
+  <p>
+    Because these storyboards are for animation, when viewing
+    the PDFs, press the right arrow button. It's like a flipbook!
+  </p>
+  
+  <div class="projects" id="projects"></div>
+  
+  <section class="extra-section">
+  
+
+  
+
+
+
+    <p>Sketches</p>
+  
+   
+  
+    <div class="image-gallery">
+  
+      <div class="gallery-item">
+        <p>Gladiatrix Thumbnails.</p>
+        <img src="Gladiatrix zero draft .png"
+             alt="Storyboard sequence 01" width="600" height="400" style="padding-top: 10px; padding-bottom: 15px; padding-left: 20px;">
+      
+      </div>
+  
+      <div class="gallery-item">
+        <p>Sand-Wizard Zero Draft.</p>
+        <img src="Sand-Wizard zero draft.png"
+             alt="Storyboard sequence 02" width="600" height="400" style="padding-top: 10px; padding-bottom: 15px; padding-left: 20px;">
+        
+      </div>
+  
+      <div class="gallery-item">
+        <p>Sand-Wizard Sketches w/notes.</p>
+        <img src="sand wizard sketch .png"
+             alt="Storyboard sequence 03" width="600" height="400" style="padding-top: 10px; padding-bottom: 15px; padding-left: 20px;">
+       
+      </div>
+  
+      <div class="gallery-item">
+        <p>Gladiatrix Thumbnail</p>
+        <img src="Gladiatrix Thumbnail.JPG"
+             alt="Storyboard sequence 04" width="600" height="400" style="padding-top: 10px; padding-bottom: 15px; padding-left: 20px;">
+       
+      </div>
+  
+    </div>
+  
+  <p>3D animations (w/ Audio)</p>
+  <video width="600" height="400" controls>
+    <source src="Lab06-compressed.mp4" type="video/mp4">
+  </video>
+  <video width="600" height="400" controls>
+    <source src="Lab03-cmpressed.mp4" type="video/mp4">
+  </video>
+  </section>
+  <!-- ABOUT ME SECTION -->
+
+<section class="about-section" id="about">
+
+  <div class="section-title">
+    <h2>ABOUT ME</h2>
+    <span>THE ARTIST BEHIND THE STORIES</span>
+  </div>
+
+  <div class="about-content">
+
+    <div class="about-image">
+      <img src="IMG_4349.jpeg"
+           alt="Cameron Nestorovski">
+    </div>
+
+    <div class="about-text">
+
+      <h2>HELLO, I'M CAMERON.</h2>
+
+      <p>
+        I am a passionate animator & storyboard artist. 
+        He is currently pursuing a degree in Visual Communication Design 
+        at Purdue University Northwest. I’m someone who believes in the power 
+        of storytelling. From the child who wants to be like their favorite 
+        character to a short film that has the right message, for the right 
+        person, at the right time. Also, I love creating cool characters, 
+        epic creatures & the exploration of “what if ...”. I’m drawn to 
+        storyboarding because I love how simple drawing can become awesome 
+        moments on screen. What attracted me to the animation industry was 
+        seeing YouTubers like Olan Rogers create their own shows. I saw how 
+        indie animation took creators with small, but loyal fanbases, 
+        to rock-stars in the animation industry. That inspired me; 
+        I want to be a part of that. 
+      </p>
+
+     
+
+    </div>
+
+  </div>
+<!-- CONTACT SECTION -->
+
+<section class="contact-section" id="contact">
+
+  <div class="section-title">
+    <h2>GET IN TOUCH</h2>
+    <span>CONTACT</span>
+  </div>
+
+  <p class="contact-description">
+    Interested in working together?
+    Have a project in mind? I'd love to hear from you.
+  </p>
+
+  <form class="contact-form"
+        action="https://formsubmit.co/cparkern2002@gmail.com"
+        method="POST">
+
+    <input type="hidden" name="_subject"
+           value="New Portfolio Contact">
+
+    <input type="hidden" name="_captcha"
+           value="true">
+
+    <input type="hidden" name="_template"
+           value="table">
+
+    <label for="name">YOUR NAME</label>
+    <input type="text" id="name" name="name"
+           placeholder="Enter your name" required>
+
+    <label for="email">YOUR EMAIL</label>
+    <input type="email" id="email" name="email"
+           placeholder="Enter your email" required>
+
+    <label for="message">YOUR MESSAGE</label>
+    <textarea id="message" name="message"
+              placeholder="Tell me about your project..."
+              rows="6" required></textarea>
+
+    <button type="submit">SEND MESSAGE ↗</button>
+
+  </form>
+
+</section>
+
+
+
+</section>
+
+</main>
+
+<footer>
+  STORYBOARD PORTFOLIO<br>
+  VISUAL STORIES · CREATIVE WORK
+</footer>
+
+
+
+
+
+
+
+
+</body>
+<script>
+
+// YOUR JAVASCRIPT CODE GOES HERE
+
+
+const projects = [
+  {
+    type: "video",
+    title: "Arena-City Animatic",
+    description: "In a Cyberpunk version of Northwest Indiana, Allison, a 20-something hoverboard skater challenges the cyborg, Mohawk, in a race in Arena-city. An abandoned city repurposed into a racetrack for cyborgs..",
+    file: "Arena-City Animatic.MP4"
+  },
+  {
+    type: "pdf",
+    title: "Gladiatrix Storyboards",
+    description: "A Christian slave was sold to the Colosseum & most fight an Evil Wizard to reunite with her daughter.",
+    file: "Storyboard Gladiatrix.pdf"
+  },
+  {
+    type: "pdf",
+    title: "Sand-Wizard Storyboards",
+    description: "The Sand-Wizard plays on the beach with his dog, until a Giant Crab Attacks!.",
+    file: "Storyboard Sand-Wizard.pdf"
+  },
+  {
+    type: "pdf",
+    title: "Arena-City Storyboards",
+    description: "Original storyboards for Arena-City.",
+    file: "Storyboard Arena-City.pdf"
+  }
+];
+
+const container = document.getElementById("projects");
+
+function renderProjects() {
+  projects.forEach((project, index) => {
+
+    const item = document.createElement("div");
+    item.className = "project";
+
+    const preview = document.createElement("div");
+    preview.className = "preview";
+
+    if (project.type === "video") {
+      const video = document.createElement("video");
+
+      video.controls = true;
+      video.preload = "metadata";
+      video.playsInline = true;
+
+      const source = document.createElement("source");
+      source.src = project.file;
+      source.type = "video/mp4";
+
+      video.appendChild(source);
+      preview.appendChild(video);
+
+    } else if (project.type === "pdf") {
+      const frame = document.createElement("iframe");
+
+      frame.src = project.file;
+      frame.title = project.title;
+      frame.loading = "lazy";
+
+      preview.appendChild(frame);
+    }
+
+    const info = document.createElement("div");
+    info.className = "project-info";
+
+    info.innerHTML = `
+      <div class="project-title">${project.title}</div>
+      <div class="project-description">${project.description}</div>
+    `;
+
+    item.innerHTML = `
+      <div class="project-number">
+        PROJECT ${String(index + 1).padStart(2, "0")}
+      </div>
+    `;
+
+    item.appendChild(preview);
+    item.appendChild(info);
+
+    container.appendChild(item);
+
+  });
+}
+
+renderProjects();
+
+
+
+</script>
+</html>
